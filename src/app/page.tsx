@@ -1,6 +1,33 @@
+"use client";
 import Image from "next/image";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch("/api/sign-up", {
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username: "ruchi3",
+          password: "123ruchip12",
+          email: "ruchip@webmobtech.com",
+        }),
+      });
+
+      // Check if the request was successful
+      if (!response.ok) {
+        throw new Error(`HTTP error status: ${response.status}`);
+      }
+
+      // Log the response data
+      const data = await response.json();
+      console.log("response", data);
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
