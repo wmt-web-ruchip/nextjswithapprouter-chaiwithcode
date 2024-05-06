@@ -9,9 +9,9 @@ export default function Home() {
         method: "post",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          username: "ruchi3",
-          password: "123ruchip12",
-          email: "ruchip@webmobtech.com",
+          username: "xyz",
+          password: "xyz",
+          email: "ruchip@test.com",
         }),
       });
 

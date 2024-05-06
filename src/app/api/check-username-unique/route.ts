@@ -36,6 +36,8 @@ export async function GET(request: NextRequest) {
     }
     const { username } = result?.data;
     console.log("username", username);
+
+    const existingVerifiedUser = UserModel.findOne({username, isVerified:true})
   } catch (error) {
     console.error("Error checking username", error);
     return NextResponse.json(
