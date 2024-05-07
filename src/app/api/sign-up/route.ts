@@ -8,12 +8,10 @@ export async function POST(request: NextRequest) {
   await dbConnect();
   try {
     const { username, email, password } = await request.json();
-    console.log("username, email, password", username, email, password);
     const existingUserVerifiedByUsername = await UserModal.findOne({
       username,
       // isVerified: true,
     });
-
     if (existingUserVerifiedByUsername) {
       return NextResponse.json(
         {
@@ -27,7 +25,6 @@ export async function POST(request: NextRequest) {
     }
 
     const existingUserByEmail = await UserModal.findOne({ email });
-
     // Genrate verification code
     const verifyCode = Math.floor(100000 + Math.random() * 900000).toString();
     if (existingUserByEmail) {
@@ -46,7 +43,6 @@ export async function POST(request: NextRequest) {
         existingUserByEmail.password = hasedPassword;
         existingUserByEmail.verifyCode = verifyCode;
         existingUserByEmail.verifyCodeExpiry = new Date(Date.now() + 3600000);
-
         await existingUserByEmail.save();
       }
     } else {

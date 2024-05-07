@@ -3,30 +3,6 @@ import Image from "next/image";
 import { useEffect } from "react";
 
 export default function Home() {
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch("/api/sign-up", {
-        method: "post",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          username: "xyz",
-          password: "xyz",
-          email: "ruchip@test.com",
-        }),
-      });
-
-      // Check if the request was successful
-      if (!response.ok) {
-        throw new Error(`HTTP error status: ${response.status}`);
-      }
-
-      // Log the response data
-      const data = await response.json();
-      console.log("response", data);
-    };
-
-    fetchData();
-  }, []);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
