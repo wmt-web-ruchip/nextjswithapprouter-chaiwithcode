@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "~antd/dist/reset.css";
+
+body {
+  margin: 0;
+  background: #000000;
+}
+
+*::-webkit-scrollbar {
+  width: 4px; /* width of the entire scrollbar */
+  margin: 4px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #f9f9f9; /* color of the tracking area */
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #646464; /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+  border: 10px solid #646464; /* creates padding around scroll thumb */
+}
+
+// For menu
+.ant-menu .ant-menu-item-selected,
+.ant-select-item-option-selected {
+  background: #175b57 !important; //darkPrimary
+  color: #ffffff !important; //white
+  border-radius: 6px !important;
+}
+
+// For dropdown
+.ant-dropdown {
+  z-index: 1500 !important;
+}
+.ant-dropdown-menu-submenu-selected .ant-dropdown-menu-submenu-title,
+.ant-dropdown-menu-item-selected,
+.ant-dropdown-menu-submenu-selected {
+  background: #175b57 !important; //darkPrimary
+  color: #ffffff !important; //white
+  border-radius: 6px !important;
+}
+
+// For tabs
+.ant-tabs-tab {
+  &.ant-tabs-tab-active {
+    & .ant-tabs-tab-btn {
+      color: #ffffff !important; //white
+    }
+    & {
+      background: #175b57 !important; //darkPrimary
+      border-radius: 6px !important;
+    }
+  }
+}
+// for the arrow of tooltip component in antd
+.ant-tooltip-placement-top > .ant-tooltip-arrow {
+  background-color: #1a1a1a !important;
+  position: absolute;
+  bottom: -6px !important;
+  left: 49% !important;
+  transform: rotate(45deg);
+}
+.ant-tooltip-placement-bottom > .ant-tooltip-arrow {
+  background-color: #1a1a1a !important;
+  position: absolute;
+  top: -6px !important;
+  left: 49% !important;
+  transform: rotate(45deg);
+}
+.ant-tooltip-placement-left .ant-tooltip-arrow {
+  background-color: #1a1a1a !important;
+  position: absolute;
+  right: -5px !important;
+  top: 30% !important;
+  transform: rotate(45deg);
+  z-index: 0;
+}
+.ant-tooltip-arrow:before {
+  background: #1a1a1a !important;
+}
+.ant-tooltip .ant-tooltip-inner {
+  background-color: #1a1a1a;
+}
+
+.ant-checkbox .ant-checkbox-inner {
+  border-radius: 4px;
+}
